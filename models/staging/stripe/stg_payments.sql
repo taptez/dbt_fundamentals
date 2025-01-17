@@ -5,7 +5,7 @@ select
     PAYMENTMETHOD as payment_method,
     STATUS,
     -- amount is stored in cents, convert it to dollars
-    AMOUNT / 100 as amount,
+    {{ cents_to_dollars('amount', 1) }} as amount,
     CREATED as created_at
 
 from {{ source('stripe', 'payment') }}

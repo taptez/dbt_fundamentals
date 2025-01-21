@@ -1,0 +1,18 @@
+version: 2
+
+seeds:
+    - name: codes_iso_pays
+      description: Liste des pays et codes iso
+      columns:
+          - name: code_iso3
+            tests:
+              - unique
+              - not_null
+          - name: code_iso2
+            tests:
+              - unique
+              - not_null
+          - name: nom_pays_fr
+            tests:
+              - unique
+              - not_null

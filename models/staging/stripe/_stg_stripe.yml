@@ -3,9 +3,41 @@ version: 2
 models:
   - name: stg_payments
     description: all payments
+    config:
+      contract:
+        enforced: true
     columns: 
       - name: payment_id
         description: primary key
+        data_type: varchar
         tests:
           - unique
           - not_null
+        constraints:
+          - type: not_null
+      - name: order_id
+        description: column description
+        data_type: varchar
+        tests:
+          - not_null
+      - name: payment_method
+        description: column description
+        data_type: varchar
+        tests:
+          - not_null
+      - name: status
+        description: column description
+        data_type: varchar
+        tests:
+          - not_null
+      - name: amount
+        description: column description
+        data_type: number
+        tests:
+          - not_null
+      - name: created_at
+        description: column description
+        data_type: timestamp_ntz
+        tests:
+          - not_null
+            

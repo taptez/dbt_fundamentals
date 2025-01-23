@@ -1,0 +1,9 @@
+entities:
+  - name: orders_items
+    expr: order_items_id
+    type: primary
+    dimension:
+      - name: last_ordered_at
+        type: time
+        type_params:
+          time_granularity: day

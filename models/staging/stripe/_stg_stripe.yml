@@ -4,6 +4,8 @@ models:
   - name: stg_payments
     description: all payments
     latest_version: 2
+    access: protected
+    group: product
     config:
       contract:
         enforced: true

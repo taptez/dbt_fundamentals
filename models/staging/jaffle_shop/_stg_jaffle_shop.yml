@@ -3,6 +3,8 @@ version: 2
 models:
   - name: stg_customers
     description: one unique customer per row
+    access: protected
+    group: product
     columns: 
       - name: customer_id
         description: primary key
@@ -12,6 +14,8 @@ models:
 
   - name: stg_orders
     description: one order per row
+    access: protected
+    group: product
     columns:
       - name: order_id
         description: primary key

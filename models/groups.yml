@@ -1,0 +1,12 @@
+groups:
+  - name: finance
+    owner:
+      name: John DOE
+      email: johndoe@dbt.com
+      slack: slack
+      github: github
+  - name: product
+    owner:
+      name: Sara DOE
+      email: saradoe@dbt.com
+

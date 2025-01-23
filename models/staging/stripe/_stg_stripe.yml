@@ -3,6 +3,7 @@ version: 2
 models:
   - name: stg_payments
     description: all payments
+    latest_version: 2
     config:
       contract:
         enforced: true
@@ -40,4 +41,16 @@ models:
         data_type: timestamp_ntz
         tests:
           - not_null
-            
+    versions:
+      - v: 1
+        config:
+          alias: stg_stripe
+      -v: 2
+        columns:
+          - name: payment_amount
+            data_type: numbers
+          - name: created_at
+            data_type: date
+          - include: all
+          - exclude: [amount]
+

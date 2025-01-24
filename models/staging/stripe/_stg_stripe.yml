@@ -9,3 +9,11 @@ models:
         tests:
           - unique
           - not_null
+      - name: amount
+        description: amount of transaction
+        tests:
+          - greater_than_five:
+              config:
+                severity: warn
+                error_if: ">50"
+                warn_if: ">10"

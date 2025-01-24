@@ -8,7 +8,10 @@ models:
         description: primary key
         tests:
           - unique
-          - not_null
+          - not_null:
+              config:
+                severity: error
+                error_if: ">100"
 
   - name: stg_orders
     description: one order per row
@@ -16,13 +19,18 @@ models:
       - name: order_id
         description: primary key
         tests:
-          - unique
+          - unique:
+              config: 
+                where: "order_date > '2018-01-01'"
           - not_null
       - name: status
         description: '{{ doc("order_status") }}'
         tests:
           - accepted_values:
               values: ['completed', 'shipped', 'returned', 'return_pending', 'placed']
+              config:
+                store_failures: true
+                schema: test_failures
       - name: customer_id
         description: Foreign key to stg_customers.customer_id
         tests:

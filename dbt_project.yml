@@ -7,7 +7,7 @@ version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'default'
+profile: 'jaffle_shop_tutorial'
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -38,7 +38,14 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   jaffle_shop:
     marts:
+      +required_tests: {"relationship.*": 1}
       +materialized: table
     staging:
+      +required_tests: {"unique.*|not_null": 2}
       +materialized: view
+
+# tests:
+#   jaffle_shop:
+#     +severity: warn
+#     +store_failures: true
 
